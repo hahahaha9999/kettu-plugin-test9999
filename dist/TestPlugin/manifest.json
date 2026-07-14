@@ -7,8 +7,9 @@
       "id": "758731615265357824"
     }
   ],
-  "main": "index.js",
+  "main": "src/index.ts",
   "vendetta": {
     "icon": "ic_badge_staff"
-  }
+  },
+  "hash": "24603e425d6aa5877b25c1304f8a9bde4b6ad6e474da031952e5d044a3179b28"
 }

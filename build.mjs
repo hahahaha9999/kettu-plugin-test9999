@@ -95,7 +95,8 @@ for (const plug of await readdir("./plugins")) {
             .update(built)
             .digest("hex");
 
-        manifest.main = "index.js";
+        // Keep the original manifest entry path
+        manifest.main = "src/index.ts";
 
         await writeFile(
             `${outDir}/manifest.json`,

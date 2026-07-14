@@ -1,6 +1,5 @@
 import { readFile, writeFile, readdir } from "fs/promises";
 import { extname } from "path";
-import { createHash } from "crypto";
 
 import { rollup } from "rollup";
 import url from "@rollup/plugin-url";
@@ -89,13 +88,10 @@ for (const plug of await readdir("./plugins")) {
 
         await bundle.close();
 
-        const built = await readFile(outPath);
+        // Remove hash temporarily for testing
+        delete manifest.hash;
 
-        manifest.hash = createHash("sha256")
-            .update(built)
-            .digest("hex");
-
-        // Keep the original manifest entry path
+        // Keep source entry path
         manifest.main = "src/index.ts";
 
         await writeFile(

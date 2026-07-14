@@ -88,11 +88,11 @@ for (const plug of await readdir("./plugins")) {
 
         await bundle.close();
 
-        // Remove hash temporarily for testing
+        // Keep manifest simple for testing
         delete manifest.hash;
 
-        // Keep source entry path
-        manifest.main = "src/index.ts";
+        // Built file is next to manifest.json
+        manifest.main = "index.js";
 
         await writeFile(
             `${outDir}/manifest.json`,

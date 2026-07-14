@@ -83,9 +83,8 @@ for (const plug of await readdir("./plugins")) {
 
                 return null;
             },
-            format: "iife",
+            format: "es",
             compact: true,
-            exports: "named",
         });
 
         await bundle.close();
